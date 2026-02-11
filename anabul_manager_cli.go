@@ -8,7 +8,7 @@ import (
 
 type Kucing struct {
 	Nama   string
-	Umur   float
+	Umur   string
 	Status bool
 }
 
@@ -28,13 +28,13 @@ func main() {
 		scanner.Scan()
 		pilihan := scanner.Text()
 
-		if pilihan == 1 {
+		if pilihan == "1" {
 			tambahKucing(scanner)
-		} else if pilihan == 2 {
+		} else if pilihan == "2" {
 			lihatKucing()
-		} else if pilihan == 3 {
+		} else if pilihan == "3" {
 			cekKucingStatus()
-		} else if pilihan == 4 {
+		} else if pilihan == "4" {
 			fmt.Println("Dadah Meong!")
 			break
 		} else {
@@ -57,21 +57,41 @@ func tambahKucing(scanner *bufio.Scanner) {
 	inputStatus := scanner.Text()
 
 	var jikaSakit bool
-	if status == "Sehat" {
+	if inputStatus == "Sehat" {
 		jikaSakit = true
-	} else if status == "Sakit" {
+	} else if inputStatus == "Sakit" {
 		jikaSakit = false
 	} else {
-		fmt.Println("Masukkan status yang valid!(Sehat/Sakit)")
+		fmt.Println("Masukkan status yang valid! Dianggap sehat dulu ya")
 		jikaSakit = true
 	}
 
 	KucingBaru := Kucing{
-		Nama:      InputNama,
-		Umur:      inputUmur,
-		jikaSakit: jikaSakit,
+		Nama:   InputNama,
+		Umur:   inputUmur,
+		Status: jikaSakit,
 	}
 
-	databaseKucing = append(databaseKucing, KucingBaru())
+	databaseKucing = append(databaseKucing, KucingBaru)
+
+	fmt.Println("Berhasil menyimpan si", InputNama)
+
+}
+
+func lihatKucing() {
+	fmt.Println("--Data Semua Kucingmu--")
+	for i, data := range databaseKucing {
+		var teksStatus string
+		if data.Status == true {
+			teksStatus = "Sakit"
+		} else {
+			teksStatus = "Sehat"
+		}
+
+		fmt.Printf("%d. %s %s tahun, %b ", i+1, data.Nama, data.Umur, data.Status)
+	}
+}
+
+func cekKucingStatus() {
 
 }
