@@ -1,6 +1,6 @@
 # 🐾 Anabul Manager CLI
 
-Anabul Manager adalah aplikasi **Command Line Interface (CLI)** sederhana yang dibuat menggunakan bahasa **Go (Golang)** untuk mengelola data kucing peliharaan.
+Anabul Manager adalah aplikasi **Command Line Interface (CLI)** sederhana yang dibuat menggunakan bahasa **Go (Golang)** untuk mengelola data kucing peliharaan author.
 
 Project ini dibuat sebagai latihan untuk memahami konsep dasar Golang seperti:
 
@@ -64,6 +64,6 @@ Project ini dibuat untuk:
 
 ---
 
-## 👩‍💻 Author
-
-Made with 🐱 by Bintang
+## 👤 Author
+**Ni Putu Bintang Permatasari**
+*Computer Science Student*
