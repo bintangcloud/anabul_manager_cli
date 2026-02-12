@@ -88,7 +88,7 @@ func lihatKucing() {
 			teksStatus = "Sehat"
 		}
 
-		fmt.Printf("%d. %s %s tahun, %b ", i+1, data.Nama, data.Umur, data.Status)
+		fmt.Printf("%d. %s %s tahun, %s \n", i+1, data.Nama, data.Umur, teksStatus)
 	}
 }
 
