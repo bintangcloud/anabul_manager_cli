@@ -18,7 +18,7 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	for {
-		fmt.Println("Anabul Manager")
+		fmt.Println("\n === APLIKASI ANABUL MANAGER ===")
 		fmt.Println("1. Tambah Kucing")
 		fmt.Println("2. Lihat Semua Kucing")
 		fmt.Println("3. Cek Kucing Sakit")
@@ -57,13 +57,13 @@ func tambahKucing(scanner *bufio.Scanner) {
 	inputStatus := scanner.Text()
 
 	var jikaSakit bool
-	if inputStatus == "Sehat" {
+	if inputStatus == "Sakit" {
 		jikaSakit = true
-	} else if inputStatus == "Sakit" {
+	} else if inputStatus == "Sehat" {
 		jikaSakit = false
 	} else {
 		fmt.Println("Masukkan status yang valid! Dianggap sehat dulu ya")
-		jikaSakit = true
+		jikaSakit = false
 	}
 
 	KucingBaru := Kucing{
@@ -74,7 +74,7 @@ func tambahKucing(scanner *bufio.Scanner) {
 
 	databaseKucing = append(databaseKucing, KucingBaru)
 
-	fmt.Println("Berhasil menyimpan si", InputNama)
+	fmt.Printf("Berhasil menyimpan si %s !\n", InputNama)
 
 }
 
@@ -93,5 +93,10 @@ func lihatKucing() {
 }
 
 func cekKucingStatus() {
-
+	fmt.Println("Segera periksakan. Ini data anabulmu yang sakit:")
+	for i, data := range databaseKucing {
+		if data.Status == true {
+			fmt.Printf("%d. %s %s tahun\n", i+1, data.Nama, data.Umur)
+		}
+	}
 }
